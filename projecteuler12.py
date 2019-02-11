@@ -1,14 +1,25 @@
-# The N-th triangular number is given by n(n+1)/2
-i = 150
-p = 1
-while p<500:
-    div =[1]
-    n = (i*(i+1))/2
-    #find a list of the divisors of n
-    for i in range(2,(n//2)+1):
-        if n%i == 0:
-            div.append(i)
-    div.append(n)
-    p = len(div)
-    i += 1
-print(n)
+def countDivisors(n):
+    k = 0
+    if n < 10:
+        for i in range(1,n):
+            if n % i == 0:
+                k += 1
+    else:
+        for i in range(1,int(n/2) + 1):
+            if n % i == 0:
+                k += 1
+    k += 1
+    return k
+def div(u):
+    h = 0
+    i = 60
+    while (h < u):
+        tri = int((i*(i+1))/2)
+        # Counting the divisors of tri
+        h = countDivisors(tri)
+        print(tri, '\t', countDivisors(int(((i-2)*(i-1))/2)))
+        i += 1
+    print(int(((i-2)*(i-1))/2))
+    return tri
+print(div(100))
+
